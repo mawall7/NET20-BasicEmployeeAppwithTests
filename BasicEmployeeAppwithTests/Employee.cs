@@ -21,5 +21,11 @@ namespace BasicEmployeeAppwithTests
                 }
             }
         }
+
+        public Employee(string name, int salary)
+        {
+            salary = salary;
+            Name = name;
+        }
     }
 }
