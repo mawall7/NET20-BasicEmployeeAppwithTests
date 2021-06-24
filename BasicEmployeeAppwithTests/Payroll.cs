@@ -13,7 +13,10 @@ namespace BasicEmployeeAppwithTests
             payroll = new List<Employee>();
         }
 
-
+        internal Employee[] GetEmployees()
+        {
+            return payroll.ToArray();
+        }
         internal void AddEmployee(string name, int salary) 
         {
             payroll.Add(new Employee(name, salary));
