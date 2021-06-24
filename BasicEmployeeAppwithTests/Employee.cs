@@ -7,11 +7,11 @@ namespace BasicEmployeeAppwithTests
     class Employee
     {
         public string Name { get; set; }
-        private int salary;
+        public int Salary;
         public SalaryLevel Salarylevel {
             get 
             {
-                if (salary < 15000)
+                if (Salary < 15000)
                 {
                     return SalaryLevel.junior;
                 }
@@ -24,8 +24,17 @@ namespace BasicEmployeeAppwithTests
 
         public Employee(string name, int salary)
         {
-            salary = salary;
+            Salary = salary;
             Name = name;
         }
+
+
+        public override string ToString()
+        {
+            return $"Name:{Name},Salary:{Salary}";
+        }
+
+
     }
+
 }
