@@ -17,7 +17,8 @@ namespace BasicEmployeeAppwithTests
         {
             return payroll.ToArray();
         }
-        internal void AddEmployee(string name, int salary) 
+
+        internal void AddEmployee(string name, int salary)
         {
             payroll.Add(new Employee(name, salary));
         }

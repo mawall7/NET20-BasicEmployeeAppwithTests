@@ -7,22 +7,25 @@ namespace BasicEmployeeAppwithTests
     class Employee
     {
         public string Name { get; set; }
-        private int salary;
-        public int Salary  //validation for salary
-        {
-            get
-            {
-                if (salary < 0)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return salary;
-                }
-            
-            }
-        }
+        public int Salary { get; set; }
+        //public int Salary  //validation for salary
+        //{
+        //    get
+        //    {
+        //        if (salary < 0)
+        //        {
+        //            return 0;
+        //        }
+        //        else
+        //        {
+        //            return Salary;
+        //        }
+        //    }
+        //    set
+        //    {
+        //        salary = value;
+        //    }
+        //}
         
             
         public SalaryLevel Salarylvl { get; set; }
@@ -38,15 +41,16 @@ namespace BasicEmployeeAppwithTests
                     return SalaryLevel.senior;
                 }
             }
+            
         }
 
         public Employee(string name, int salary)
         {
-            salary = Salary; 
+            Salary = salary; 
             Name = name;
         }
 
-        //public SalaryLevel GetSalaryLevel() //alternativ to Salarylevel with get is a method
+        //public SalaryLevel GetSalaryLevel() //method alt.to Salarylevel 
         //{
             
         //    if (Salary < 1500)
