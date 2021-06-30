@@ -8,6 +8,7 @@ namespace BasicEmployeeAppwithTests
         static void Main(string[] args)
         {
             //Payroll payroll = new Payroll();
+            
             SeedData();
 
             Console.WriteLine("Add a new employee, Q=quit ");
@@ -15,8 +16,12 @@ namespace BasicEmployeeAppwithTests
             do
             {
                 string name = Util.AskForString("Name: ");
-           
-            } while (true && name!="q");
+                if(name == "Q") break;
+                int salare = Util.AskForInt("Salary: ")
+                
+
+
+            } while (true);
 
             Employee[] employees = payroll.GetEmployees();
             foreach (Employee employee in employees)

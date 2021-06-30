@@ -23,5 +23,22 @@ namespace BasicEmployeeAppwithTests
 
             return answer;  //deklareras answer i do while loopen ligger det utanför scoopet
         }
+
+        internal static int AskForInt(string v)
+        {
+            bool success = false;
+            int answer;
+            do
+            {
+                string Input = AskForString(v);
+                success = int.TryParse(Input, out answer);
+                if(!success)
+                {
+                    Console.WriteLine("Wrong format");
+                } //check om strängen är en siffra, bara Parse behöver error validering
+            
+            } while (!success);
+            return answer;
+        }
     }
 }
