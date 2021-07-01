@@ -13,7 +13,7 @@ namespace BasicEmployeeAppwithTests
             {
                 Console.WriteLine(v);
                 answer = Console.ReadLine();
-                if (string.IsNullOrEmpty(answer))
+                if (!string.IsNullOrEmpty(answer))
                 {
                     success = true;
                 }
@@ -34,7 +34,7 @@ namespace BasicEmployeeAppwithTests
                 success = int.TryParse(Input, out answer);
                 if(!success)
                 {
-                    Console.WriteLine("Wrong format");
+                    Console.WriteLine("Wrong format"); //Obs är låst till consolen använd interface ist.
                 } //check om strängen är en siffra, bara Parse behöver error validering
             
             } while (!success);

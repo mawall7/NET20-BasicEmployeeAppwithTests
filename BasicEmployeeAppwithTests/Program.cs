@@ -8,34 +8,87 @@ namespace BasicEmployeeAppwithTests
         static void Main(string[] args)
         {
             //Payroll payroll = new Payroll();
-            
-            SeedData();
 
-            Console.WriteLine("Add a new employee, Q=quit ");
+            SeedData();
 
             do
             {
-                string name = Util.AskForString("Name: ");
-                if(name == "Q") break;
-                int salare = Util.AskForInt("Salary: ")
-                
-
+                PrintMenu();
 
             } while (true);
 
+
+
+
+            //alt. oneliner syntax därför returnerades en array i GetEmployees()
+            //alt. oneliner och employees arrayen rad 12 behövs ej.
+            //Array.ForEach(payroll.GetEmployees(), e => Console.WriteLine(e));
+            //Array.ForEach(employees, e => Console.WriteLine(e));
+
+        }
+
+        private static void PrintMenu()
+        {
+            Console.WriteLine("1.Add new Employee");
+            Console.WriteLine("2. Print");
+            Console.WriteLine("Q. Quit");
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    Add();
+                    break;
+                    
+                case "2":
+                    Print();
+                    break;
+                case "Q":
+                    Environment.Exit(0);
+                    break;
+            }
+        }
+
+        private static void Print()
+        {
             Employee[] employees = payroll.GetEmployees();
+            
+
             foreach (Employee employee in employees)
             {
                 Console.WriteLine(employee); //ref to override of ToString method gör då samma som bortkommenterade raden nedanför;
-               //Console.WriteLine($"Name:{employee.Name},Salary:{employee.Salary}");
+                if (employee.Salarylevel.Equals(SalaryLevel.junior))
+                {
+                    Console.WriteLine(DoJuniorWork());
+                }                                   
+                if (employee.Salarylevel.Equals(SalaryLevel.senior))
+                {
+                    Console.WriteLine(DoSeniorWork());
+                }                                                                        //Console.WriteLine($"Name:{employee.Name},Salary:{employee.Salary}");
             }
+        }
 
-            //alt. oneliner syntax därför returnerades en array i GetEmployees()
-            Array.ForEach(employees, e => Console.WriteLine(e));
-            //alt. oneliner och employees arrayen rad 12 behövs ej.
-            Array.ForEach(payroll.GetEmployees(), e => Console.WriteLine(e));
-            
+        private static string DoSeniorWork()
+        {
+            return "implement code";
+        }
 
+        private static string DoJuniorWork()
+        {
+            return "code tester";
+        }
+
+        private static void Add()
+        {
+            Console.WriteLine("Add a new employee, Q=quit ");
+            do
+            {
+                string name = Util.AskForString("Name: ");
+                if (name == "Q") break;
+                int salary = Util.AskForInt("Salary: ");
+                payroll.AddEmployee(name, salary);
+
+
+
+            } while (true);
         }
 
         private static void SeedData()

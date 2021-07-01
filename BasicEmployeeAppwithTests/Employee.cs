@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BasicEmployeeAppwithTests
 {
-    class Employee
+    public class Employee
     {
         public string Name { get; set; }
         public int Salary { get; set; }
