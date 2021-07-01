@@ -5,11 +5,14 @@ namespace BasicEmployeeAppwithTests
     class Program
     {
         static Payroll payroll = new Payroll(); //ligger ej i main och ger då tillgång till payroll i hela klassen.
-        
-        private static IUI ui = new ConsoleUI();
+
+        //private static IUI ui = new ConsoleUI(); // Ska också abstraheras
+        private static IUI ui;
         static void Main(string[] args)
         {
             //Payroll payroll = new Payroll();
+            var startup = new StartUp();
+            ui = startup.GetUI(1); // 1. ConsoleUI
 
             SeedData();
 
@@ -89,9 +92,9 @@ namespace BasicEmployeeAppwithTests
             Console.WriteLine("Add a new employee, Q=quit ");
             do
             {
-                string name = Util.AskForString("Name: ");
+                string name = Util.AskForString("Name: ", ui);
                 if (name == "Q") break;
-                int salary = Util.AskForInt("Salary: ");
+                int salary = Util.AskForInt("Salary: ", ui);
                 payroll.AddEmployee(name, salary);
 
 
