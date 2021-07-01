@@ -5,6 +5,8 @@ namespace BasicEmployeeAppwithTests
     class Program
     {
         static Payroll payroll = new Payroll(); //ligger ej i main och ger då tillgång till payroll i hela klassen.
+        
+        private static IUI ui = new ConsoleUI();
         static void Main(string[] args)
         {
             //Payroll payroll = new Payroll();
@@ -29,9 +31,12 @@ namespace BasicEmployeeAppwithTests
 
         private static void PrintMenu()
         {
-            Console.WriteLine("1.Add new Employee");
-            Console.WriteLine("2. Print");
-            Console.WriteLine("Q. Quit");
+            //Console.WriteLine("1.Add new Employee");
+            //Console.WriteLine("2. Print");
+            //Console.WriteLine("Q. Quit");
+            ui.Print("1.Add new Employee");
+            ui.Print("2. Print");
+            ui.Print("Q. Quit");
             switch (Console.ReadLine())
             {
                 case "1":
@@ -54,14 +59,17 @@ namespace BasicEmployeeAppwithTests
 
             foreach (Employee employee in employees)
             {
-                Console.WriteLine(employee); //ref to override of ToString method gör då samma som bortkommenterade raden nedanför;
+                /*Console.WriteLine(employee);*/ //ref to override of ToString method gör då samma som bortkommenterade raden nedanför;
+                ui.Print(employee.ToString()); //apply ui interface
                 if (employee.Salarylevel.Equals(SalaryLevel.junior))
                 {
-                    Console.WriteLine(DoJuniorWork());
+                    //Console.WriteLine(DoJuniorWork());
+                    ui.Print(DoJuniorWork());
                 }                                   
                 if (employee.Salarylevel.Equals(SalaryLevel.senior))
                 {
-                    Console.WriteLine(DoSeniorWork());
+                    //Console.WriteLine(DoSeniorWork());
+                    ui.Print(DoSeniorWork());
                 }                                                                        //Console.WriteLine($"Name:{employee.Name},Salary:{employee.Salary}");
             }
         }
