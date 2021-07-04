@@ -43,5 +43,22 @@ namespace BasicEmployeeAppTests
 
             Assert.AreEqual(int.Parse(value), actual);
         }
+
+        [TestMethod]
+
+        [DataRow("5")]
+        [DataRow("10")]
+        [DataRow("15")]
+
+
+        public void AskForPositiveInt_ReturnExpected(string value)
+        {
+           
+            ui.Setup(a => a.GetInput()).Returns(value);
+           
+            var actual = Util.AskForPositiveInt(value, ui.Object);
+
+            Assert.AreEqual(int.Parse(value), actual);
+        }
     }
 }
