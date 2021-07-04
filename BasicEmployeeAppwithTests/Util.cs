@@ -46,16 +46,35 @@ namespace BasicEmployeeAppwithTests
             do
             {
                 string Input = AskForString(v, ui);  
-                int.TryParse(Input, out answer); //tryparse sets input to answer if it is of type int
-                success = answer > 0 ? success = true : success = false;  
+                success = int.TryParse(Input, out answer); //tryparse sets input to answer if it is of type int
+                 
                 if(!success)
                 {
-                    ui.Print("Wrong format String or negative value not allowed!"); 
+                    ui.Print("Wrong format String "); 
                     /*Console.WriteLine("Wrong format");*/ //Obs är låst till consolen använd interface ist.
                 } //check om strängen är en siffra, bara Parse behöver error validering
             
             } while (!success);
             return answer;
+        }
+
+        internal static int AskForPositiveInt(string v,IUI ui)
+        {
+            bool success = false;
+            int answer;
+            do
+            {
+                answer = AskForInt(v, ui);
+                if (answer > 0)
+                {
+                    success = true;
+                }
+                else ui.Print("negative value not allowed");
+    
+
+            } while (!success);
+            return answer;
+            
         }
     }
 }

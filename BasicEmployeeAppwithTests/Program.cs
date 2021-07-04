@@ -94,7 +94,7 @@ namespace BasicEmployeeAppwithTests
             {
                 string name = Util.AskForString("Name: ", ui);
                 if (name == "Q") break;
-                int salary = Util.AskForInt("Salary: ", ui);
+                int salary = Util.AskForPositiveInt("Salary: ", ui);
                 payroll.AddEmployee(name, salary);
 
 
