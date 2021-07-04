@@ -18,16 +18,16 @@ namespace BasicEmployeeAppwithTests
 
         //}
 
-        internal static string AskForString(string v, IUI ui)
+        internal static string AskForString(string v, IUI ui) 
         {
             bool success = false;
             string answer;
             do
             {
                 //Console.WriteLine(v);
-                //answer = Console.ReadLine(); //vi använder istället ett interface ui för att göra metoden testbar vi fejkar då console.readline hoppar över den  
+                //answer = Console.ReadLine(); //vi använder istället ett interface iui för att göra metoden testbar vi fejkar då console.readline hoppar över den  
                 ui.Print(v);
-                answer = ui.GetInput(); // eftersom GetInput returnerar Console.ReadLine så fakar vi metoden och säger vad den ska reurnera vid test
+                answer = ui.GetInput(); //vilken klass som helst som implementerar(ärver) interfacet är av iui typen, vi kan t.ex. skicka in ett ConsoleUI med egen implementation av metoderna, t.ex. görs det här i Program via en Startup Klass (gör att även Program blir löst kopplad och vi kan välja vilket ui vi ska välja via en annan klass). Eftersom GetInput returnerar Console.ReadLine om vi skickar in ConsloeUI så mockar:ar vi metoden och säger vad den ska reurnera vid test av metoden(i BasicEMployeeAppTests/UtilClassTests.cs)
                 if (!string.IsNullOrEmpty(answer))
                 {
                     success = true;

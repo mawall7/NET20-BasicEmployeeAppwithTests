@@ -8,27 +8,29 @@ namespace BasicEmployeeAppwithTests
     public class Employee
     {
         public string Name { get; set; }
-        public int Salary { get; set; }
-        //public int Salary  //validation for salary
-        //{
-        //    get
-        //    {
-        //        if (salary < 0)
-        //        {
-        //            return 0;
-        //        }
-        //        else
-        //        {
-        //            return Salary;
-        //        }
-        //    }
-        //    set
-        //    {
-        //        salary = value;
-        //    }
-        //}
-        
-            
+        //public int Salary { get; set; }
+        private int salary; //ett fält behövs om man skriver egen implementation av property
+        public int Salary  //validation for salary
+        {
+            get
+            {
+                return salary;
+            }
+            set
+            {
+                if (value < 0) 
+                {
+
+                    throw new ArgumentOutOfRangeException("integer Less Than zero Exception"); 
+                }
+                else
+                {
+                    salary = value;
+                }
+            }
+        }
+
+
         public SalaryLevel Salarylvl { get; set; }
         public SalaryLevel Salarylevel {
             get

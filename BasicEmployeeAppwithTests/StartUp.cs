@@ -14,7 +14,7 @@ namespace BasicEmployeeAppwithTests
                         result = new ConsoleUI();
                         break;
                     }
-                //Other choices can be added later, reading input from file etc;
+                //Other choices can be added later, UI reading input from webaplication api;
             }
             return result;
         }
