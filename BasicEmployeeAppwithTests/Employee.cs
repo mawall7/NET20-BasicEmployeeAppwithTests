@@ -49,8 +49,10 @@ namespace BasicEmployeeAppwithTests
 
         public Employee(string name, int salary)
         {
+            
             Salary = salary; 
             Name = name;
+
         }
 
         //public SalaryLevel GetSalaryLevel() //method alt.to Salarylevel 

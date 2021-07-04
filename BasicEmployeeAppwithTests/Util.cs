@@ -46,10 +46,11 @@ namespace BasicEmployeeAppwithTests
             do
             {
                 string Input = AskForString(v, ui);  
-                success = int.TryParse(Input, out answer);
+                int.TryParse(Input, out answer); //tryparse sets input to answer if it is of type int
+                success = answer > 0 ? success = true : success = false;  
                 if(!success)
                 {
-                    ui.Print("Wrong format"); 
+                    ui.Print("Wrong format String or negative value not allowed!"); 
                     /*Console.WriteLine("Wrong format");*/ //Obs är låst till consolen använd interface ist.
                 } //check om strängen är en siffra, bara Parse behöver error validering
             
